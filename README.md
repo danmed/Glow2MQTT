@@ -18,3 +18,7 @@ You will need a glowmarkt.com account (free.. no need for their IHD) linked to y
 
 
 Then run the consumption.sh on a cronjob every... however long you want.. Glow only update every 30 minutes so if you check every 20 you should cover it off pretty well
+
+![image](https://user-images.githubusercontent.com/3878490/132579305-4641c814-c510-48b5-adb9-2d2fa6a4bfba.png)
+
+![image](https://user-images.githubusercontent.com/3878490/132579214-7fb948ad-1020-4309-ab58-281ed78528db.png)
