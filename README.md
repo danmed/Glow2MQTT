@@ -4,7 +4,6 @@ Note : This is all made possible by this project : https://github.com/cybermagge
 
 * Ubuntu 2.04
 * timedatectl set-timezone Europe/London
-* pip install pyglowmarkt
 * mkdir glow2mqtt
 * cd glow2mqtt
 * apt install python3-pip
@@ -14,3 +13,6 @@ Note : This is all made possible by this project : https://github.com/cybermagge
 * apt install mosquitto-clients
 * wget https://raw.githubusercontent.com/danmed/Glow2MQTT/main/consumption.sh
 * chmod a+x consumption.sh
+
+
+Then run the consumption.sh on a cronjob every... however long you want.. Glow only update every 30 minutes so if you check every 20 you should cover it off pretty well
