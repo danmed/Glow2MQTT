@@ -1,5 +1,7 @@
 # Glow2MQTT
 
+Note : This is all made possible by this project : https://github.com/cybermaggedon/pyglowmarkt All credit belongs with them!
+
 * Ubuntu 2.04
 * timedatectl set-timezone Europe/London
 * pip install pyglowmarkt
