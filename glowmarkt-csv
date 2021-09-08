@@ -1,0 +1,81 @@
+#!/usr/bin/env python3
+
+from glowmarkt import *
+import datetime
+import sys
+import argparse
+import csv
+
+try:
+
+    parser = argparse.ArgumentParser(
+        description=__doc__
+    )
+    parser.add_argument('--username', '-u',
+                        required=True,
+                        help="Bright account username")
+    parser.add_argument('--password', '-p',
+                        required=True,
+                        help="Bright account password")
+    parser.add_argument('--classifier', '-c',
+                        default="electricity.consumption",
+                        help="Resource classifier to use (default: electricity.consumption)")
+    parser.add_argument('--minutes', '-m',
+                        default=240,
+                        help="Number of minutes to look back")
+    parser.add_argument('--period', '-d',
+                        default="PT30M",
+                        help="Summary period (default: PT1H)")
+    parser.add_argument('--no-header', '-n',
+                        action="store_const", const=True,
+                        help="Suppress CSV header")
+
+    # Parse arguments
+    args = parser.parse_args(sys.argv[1:])
+
+    cli = BrightClient(args.username, args.password)
+    ents = cli.get_virtual_entities()
+
+    rows = []
+
+    if not args.no_header:
+        rows.append([
+            "entity", "resource", "time", "value", "unit"
+        ])
+
+    for ent in ents:
+
+        for res in ent.get_resources():
+
+            if res.classifier != args.classifier:
+                continue
+
+            now = datetime.datetime.now()
+            t_from = now - datetime.timedelta(minutes=int(args.minutes))
+            t_to = now
+
+            rdgs = res.get_readings(t_from, t_to, args.period)
+            for r in rdgs:
+
+                tm = r[0].astimezone().replace(tzinfo=None).isoformat()
+                value = r[1].value
+                unit = r[1].unit()
+
+                row = [
+                    #ent.name,
+                    #res.id,
+                    #tm,
+                    value
+                    #unit
+                ]
+
+                rows.append(row)
+
+    writer = csv.writer(sys.stdout, quoting=csv.QUOTE_MINIMAL)
+    for row in rows:
+        writer.writerow(row)
+
+except Exception as e:
+    print(e)
+
+    raise e
