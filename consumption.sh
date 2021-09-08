@@ -9,4 +9,4 @@ do
    consumption=$(expr $consumption + $output)
 done < <(tail -n +2 consumption.csv)
 
-mosquitto_pub -h 192.168.2.15 -m $consumption -t glowmarkt/consumptiontoday -u mqtt2 -P mqtt2 -r -d
+mosquitto_pub -h <MQTT IP> -m $consumption -t glowmarkt/consumptiontoday -u <MQTT_USER> -P <MQTT_PASS> -r -d
