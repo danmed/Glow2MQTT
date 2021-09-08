@@ -2,7 +2,7 @@
 
 Note : This is all made possible by this project : https://github.com/cybermaggedon/pyglowmarkt All credit belongs with them!
 
-You will need a glowmarkt.com account linked to your provider and receiving readings from your SMETS2 meter.
+You will need a glowmarkt.com account (free.. no need for their IHD) linked to your provider and receiving readings from your SMETS2 meter. This will only give you the halfhourly increments, but seeing as the energy dashboard in HA only reports hourly figures, it works just fine.
 
 * Ubuntu 20.04 # Only version this has been tested on
 * timedatectl set-timezone Europe/London # Make sure your timezone is correct
