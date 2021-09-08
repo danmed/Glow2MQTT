@@ -10,4 +10,5 @@
 * wget https://raw.githubusercontent.com/danmed/Glow2MQTT/main/glowmarkt-csv
 * chmod a+x glowmarkt-csv
 * apt install mosquitto-clients
-* 
+* wget https://raw.githubusercontent.com/danmed/Glow2MQTT/main/consumption.sh
+* chmod a+x consumption.sh
