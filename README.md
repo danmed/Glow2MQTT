@@ -12,6 +12,7 @@ You will need a glowmarkt.com account (free.. no need for their IHD) linked to y
 * pip install pyglowmarkt
 * apt install mosquitto-clients
 * wget https://raw.githubusercontent.com/danmed/Glow2MQTT/main/consumption.sh
+* edit consumption.sh to input your credentials.
 * chmod a+x consumption.sh
 
 
