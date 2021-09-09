@@ -10,8 +10,6 @@ You will need a glowmarkt.com account (free.. no need for their IHD) linked to y
 * cd glow2mqtt
 * apt install python3-pip
 * pip install pyglowmarkt
-* wget https://raw.githubusercontent.com/danmed/Glow2MQTT/main/glowmarkt-csv # This is a slightly modified version of cybermaggedon's script to remove columns no required.
-* chmod a+x glowmarkt-csv
 * apt install mosquitto-clients
 * wget https://raw.githubusercontent.com/danmed/Glow2MQTT/main/consumption.sh
 * chmod a+x consumption.sh
