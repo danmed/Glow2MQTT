@@ -1,3 +1,10 @@
 #!/bin/bash
-consumption=`glowmarkt-today -u '<USERNAME>' -p '<PASSWORD>' -c electricity.consumption`
-mosquitto_pub -h <MQTT_IP> -m $consumption -t glowmarkt/consumptiontoday -u <MQTT_USER> -P <MQTT_PASS> -r -d
+glowuser="<CHANGEME>"
+glowpass="<CHANGEME>"
+mqttip="<CHANGEME>"
+mqttuser="<CHANGEME>"
+mqttpass="<CHANGEME>"
+consumption=`glowmarkt-today -u $glowuser -p $glowpass -c electricity.consumption`
+cost=`glowmarkt-today -u $glowuser -p $glowpass -c electricity.consumption.cost`
+mosquitto_pub -h $mqttip -m $consumption -t glowmarkt/consumptiontoday -u $mqttuser -P $mqttpass -r -d
+mosquitto_pub -h $mqttip -m $cost -t glowmarkt/costtoday -u $mqttuser -P $mqttpass -r -d
