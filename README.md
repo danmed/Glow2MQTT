@@ -15,7 +15,7 @@ SETUP :
 * timedatectl set-timezone Europe/London # Make sure your timezone is correct
 * mkdir glow2mqtt
 * cd glow2mqtt
-* wget https://raw.githubusercontent.com/danmed/Glow2MQTT/main/consumption.sh
+* git clone https://github.com/danmed/Glow2MQTT.git
 * edit consumption.sh to input your credentials.
 * chmod a+x consumption.sh
 * Then run the consumption.sh on a cronjob every... however long you want.. Glow only update every 30 minutes so if you check every 20 you should cover it off pretty well
