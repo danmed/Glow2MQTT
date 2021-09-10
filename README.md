@@ -4,19 +4,21 @@ Note : This is all made possible by this project : https://github.com/cybermagge
 
 You will need a glowmarkt.com account (free.. no need for their IHD) linked to your provider and receiving readings from your SMETS2 meter. This will only give you the halfhourly increments, but seeing as the energy dashboard in HA only reports hourly figures, it works just fine.
 
-* Ubuntu 20.04 # Only version this has been tested on
+OS : 
+ONLY TESTED ON UBUNTU 20.04
+
+DEPENDENCIES : 
+* apt install python3-pip mosquitto-clients bc
+* pip install pyglowmarkt
+ 
+SETUP : 
 * timedatectl set-timezone Europe/London # Make sure your timezone is correct
 * mkdir glow2mqtt
 * cd glow2mqtt
-* apt install python3-pip
-* pip install pyglowmarkt
-* apt install mosquitto-clients
 * wget https://raw.githubusercontent.com/danmed/Glow2MQTT/main/consumption.sh
 * edit consumption.sh to input your credentials.
 * chmod a+x consumption.sh
-
-
-Then run the consumption.sh on a cronjob every... however long you want.. Glow only update every 30 minutes so if you check every 20 you should cover it off pretty well
+* Then run the consumption.sh on a cronjob every... however long you want.. Glow only update every 30 minutes so if you check every 20 you should cover it off pretty well
 
 HA YAML code for MQTT Consumption Sensor : 
 
@@ -36,7 +38,7 @@ HA YAML code for MQTT Cost Sensor :
     name: glow_cost_today
     state_topic: "glowmarkt/costtoday"
     unit_of_measurement: '£'  
-    value_template: "{{ (value | float | round(2)) / 100 }}"
+    value_template: "{{ (value | float | round(2)) }}"
     device_class: energy
     state_class: total_increasing
 ```
