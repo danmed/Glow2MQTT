@@ -9,6 +9,7 @@ ONLY TESTED ON UBUNTU 20.04
 
 DEPENDENCIES : 
 * apt install python3-pip
+* pip install paho-mqtt
 * pip install pyglowmarkt
  
 SETUP : 
