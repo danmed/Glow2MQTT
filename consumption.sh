@@ -3,17 +3,12 @@
 glowuser="<CHANGEME>"
 glowpass="<CHANGEME>"
 mqttip="<CHANGEME>"
+mqtttopic_consumption="glowmarkt/consumptiontoday"
+mqtttopic_cost="glowmarkt/costtoday"
 mqttuser="<CHANGEME>"
 mqttpass="<CHANGEME>"
 ################
 
 ####GRAB VALUES FROM DCC####
-consumption=`/usr/local/bin/glowmarkt-today -u $glowuser -p $glowpass -c electricity.consumption`
-cost=`/usr/local/bin/glowmarkt-today -u $glowuser -p $glowpass -c electricity.consumption.cost`
-
-####FORMAT COST TO BE IN £####
-cost=$(echo "scale=10; $cost/100" | bc -l)
-
-###PUBLISH TO MQTT####
-mosquitto_pub -h $mqttip -m $consumption -t glowmarkt/consumptiontoday -u $mqttuser -P $mqttpass -r -d
-mosquitto_pub -h $mqttip -m $cost -t glowmarkt/costtoday -u $mqttuser -P $mqttpass -r -d
+consumption=`consumption=`/usr/local/bin/glowmarkt-mqtt -u $glowuser -p $glowpass -c electricity.consumption -t $mqtttopic_consumption --host $mqttip --mqtt-username $mqttuser --mqtt-pass $mqttpass`
+cost=`/usr/local/bin/glowmarkt-mqtt -u $glowuser -p $glowpass -c electricity.consumption.cost -t $mqtttopic_cost --host $mqttip --mqtt-username $mqttuser --mqtt-pass $mqttpass`
