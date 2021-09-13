@@ -8,7 +8,7 @@ OS :
 ONLY TESTED ON UBUNTU 20.04
 
 DEPENDENCIES : 
-* apt install python3-pip mosquitto-clients bc
+* apt install python3-pip
 * pip install pyglowmarkt
  
 SETUP : 
