@@ -30,7 +30,7 @@ HA YAML code for MQTT Consumption Sensor :
 ```YAML
   - platform: mqtt
     name: glow_energy_today
-    state_topic: "glowmarkt/consumptiontoday"
+    state_topic: "glowmarkt/elecconsumptiontoday"
     unit_of_measurement: 'kWh'  
     device_class: energy
     state_class: total_increasing
@@ -41,7 +41,7 @@ HA YAML code for MQTT Cost Sensor :
 ```YAML
   - platform: mqtt
     name: glow_cost_today
-    state_topic: "glowmarkt/costtoday"
+    state_topic: "glowmarkt/eleccosttoday"
     unit_of_measurement: '£'  
     value_template: "{{ (value | float | round(2)) }}"
     device_class: energy
