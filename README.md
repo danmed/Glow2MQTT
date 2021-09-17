@@ -1,5 +1,7 @@
 # Glow2MQTT
 
+NOTE : I make stuff for my own requirements.. the code works but it'll likely be inneficient.. i'm happy to take criticisms / requests / PR's but i may not always implement them... hey.. if it works then don't fix it!
+
 This is just a shell script to allow easy scheduling of the pyglowmarkt project by cybermageddon :  https://github.com/cybermaggedon/pyglowmarkt
 
 It will provide (optionally) Electricity and Gas readings and pass them to MQTT. From there you can add them to HomeAssistant and integrate them with the Energy Dashboard. (or whatever else you want to do with the data!
