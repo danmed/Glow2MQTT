@@ -1,6 +1,8 @@
 # Glow2MQTT
 
-Note : This is all made possible by this project : https://github.com/cybermaggedon/pyglowmarkt All credit belongs with them!
+This is just a shell script to allow easy scheduling of the pyglowmarkt project by cybermageddon :  https://github.com/cybermaggedon/pyglowmarkt
+
+It will provide (optionally) Electricity and Gas readings and pass them to MQTT. From there you can add them to HomeAssistant and integrate them with the Energy Dashboard. (or whatever else you want to do with the data!
 
 You will need a glowmarkt.com account (free.. no need for their IHD) linked to your provider and receiving readings from your SMETS2 meter. This will only give you the halfhourly increments, but seeing as the energy dashboard in HA only reports hourly figures, it works just fine.
 
